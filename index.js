@@ -10,7 +10,8 @@ app.use(cors());
 
 const ProductRoute = require('./Routes/productRoute');
 app.use(ProductRoute);
-const dbDriver = 'mongodb://127.0.0.1:27017/crudop';
+const dbDriver = process.env.DB_URI || 'mongodb://127.0.0.1:27017/crudop';
+
 const PORT = 9000;
 
 mongoose.connect(dbDriver).then(()=>{
